@@ -1,3 +1,36 @@
+'''
+This code simulates the dynamics of an epidemic using the SIR (Susceptible-Infected-Recovered) model. It models the spread of an infectious disease in a population and tracks how the number of susceptible, infected, and recovered individuals change over time.
+Key Functionality:
+
+    SIR Model:
+        The SIR model is a compartmental model in epidemiology that divides the population into three categories:
+            S: susceptible individuals who can contract the disease.
+            I: infected individuals who can spread the disease.
+            R: recovered individuals who are no longer susceptible and do not contribute to the spread of the disease.
+
+    Model Parameters:
+        gamma (recovery rate): The fraction of infected individuals who recover each week. A larger gamma means quicker recovery.
+        beta (contact rate * infection probability): Represents the rate at which an infected person contacts a susceptible individual and transmits the disease.
+        time: The number of weeks (steps) the simulation will run.
+
+    Initial Conditions:
+        The initial number of infected (I[0]) is set to a small fraction of the population (N/1000), and the recovered individuals (R[0]) are set to 55% of the population.
+        The number of susceptible individuals is calculated as the remaining population after subtracting the initially infected and recovered individuals.
+
+    Differential Equations:
+        The changes in susceptible (dS) and infected (dI) individuals are governed by two differential equations:
+            dS = - β * I * S / N: The rate of change of susceptible individuals is proportional to the number of infected and susceptible individuals.
+            dI = β * I * S / N - γ * I: The rate of change of infected individuals is determined by new infections and recoveries.
+
+    Numerical Solution (Riemann Integral):
+        The changes in the compartments (S, I, and R) are calculated using Euler's method, which approximates the solution to the differential equations by discretizing time (dt = 1 week).
+        The state of the system is updated iteratively for each time step, and the result is stored in arrays S, I, and R.
+
+    Visualization:
+        The results of the simulation are plotted using matplotlib to visualize the time evolution of the S, I, and R populations.
+        The plot is labeled with appropriate titles and axes, and it is saved as an image (SIR.png).
+'''
+
 import matplotlib.pyplot as plt
 import numpy as np
 
