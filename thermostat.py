@@ -1,4 +1,16 @@
- 
+'''
+Project: Molecular Dynamics Simulation of Particle Interactions
+Developed a Python-based molecular dynamics simulation to model the motion and interactions of particles in a 2D box. Key features include:
+
+    Particle Initialization: Randomly initialized particle positions and velocities within a defined boundary.
+
+    Force Calculation: Implemented a pairwise force model to simulate particle interactions, including periodic boundary conditions to handle edge effects.
+
+    Time Integration: Used a velocity Verlet algorithm to update particle positions and velocities over time, ensuring accurate dynamics.
+
+    Visualization: Generated plots to visualize particle trajectories and final positions using matplotlib.
+
+'''
 import numpy as np
 import scipy.constants as const
 import matplotlib.pyplot as plt
